@@ -141,33 +141,6 @@ __11. Wait Node__
 -	__Type__: n8n-nodes-base.wait
 -	__Purpose__: Prevents API rate limiting between slide creations
   
-# 🎨 Slide Styling Specifications
-__Logo__
--	__Font__: Open Sans, 15pt
--	__Color__: RGB(0.73, 0.75, 0.78) - Light Gray
--	__Position__: 32pt from left, 24pt from top
--	__Size__: 400pt × 36pt
-  
-__Title__
--	__Font__: Roboto, 35pt, Bold
--	__Color__: RGB(0.95, 0.35, 0.15) - Orange-Red
--	__Position__: 32pt from left, 96pt from top
--	__Size__: 600pt × 80pt
-  
-__Subtitle__
--	__Font__: Open Sans, 25pt, Bold
--	__Color__: RGB(0.20, 0.20, 0.20) - Dark Gray
--	__Position__: 32pt from left, 168pt from top
--	__Size__: 600pt × 60pt
-  
-__Bullet Points__
--	__Font__: Open Sans, 20pt
--	__Color__: RGB(0.20, 0.20, 0.20) - Dark Gray
--	__Position__: 32pt from left, 240pt from top
--	__Size__: 700pt × 280pt
--	__Style__: Disc-Circle-Square bullets
--	__Line Spacing__: 140%
--	__Indent__: 18pt
 
 # 🔧 Technical Details
 __APIs Used__
@@ -233,8 +206,11 @@ __5.	Test Workflow__
 -	Verify presentation is created in Google Drive
   
 __💡 Usage Examples__
+
 __Example 1__: Technical Tutorial
+
 Input: "Create a presentation on Docker containerization"
+
 Output: 5-slide presentation with:
 -	Introduction to Docker
 -	Container Architecture
@@ -243,7 +219,9 @@ Output: 5-slide presentation with:
 -	Best Practices
   
 __Example 2__: Business Presentation
+
 Input: "Make slides about Q4 2024 sales strategy"
+
 Output: 5-slide presentation with:
 -	Executive Summary
 -	Market Analysis
@@ -252,7 +230,9 @@ Output: 5-slide presentation with:
 -	Success Metrics
   
 __Example 3__: Educational Content
+
 Input: "Presentation about photosynthesis for high school"
+
 Output: 5-slide presentation with:
 -	What is Photosynthesis?
 -	Light Reactions
@@ -263,18 +243,21 @@ Output: 5-slide presentation with:
 __⚙️ Configuration Options__
 - Adjustable Parameters
 - Number of Slides
+  
 javascript
 // In "Edit Fields" node
 {
   "total_slides": 5  // Change to desired number
 }
 - Logo Text
+  
 javascript
 // In "slides layout" node
 {
   "logo_str": "@nikhil"  // Replace with your brand
 }
 - Slide Content Requirements
+  
 - javascript
 // In "AI Agent" node prompt
 "at least 5 detailed bullet points"  // Adjust quantity
