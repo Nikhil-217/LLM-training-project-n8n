@@ -17,53 +17,35 @@ This workflow transforms user text input into fully-formatted Google Slides pres
 - __Public Sharing__: Automatically sets presentation to "writer" access for anyone
 - __Batch Processing__: Efficiently creates multiple slides in sequence
 
-graph TD
-    %% 1. Trigger
-    A[🤖 When chat message received] --> B;
+## Workflow Diagram
+```mermaid
+graph TB
+    A[💬 Chat Trigger<br/>User Input] --> B[🤖 GPT-4o-mini<br/>Generate Filename]
+    B --> C[📊 Google Slides<br/>Create Presentation]
+    C --> D[🔗 Google Drive<br/>Share File]
+    D --> E[⚙️ Set Variables<br/>total_slides = 5]
+    E --> F[🧠 AI Agent<br/>Generate Content]
+    F --> G[📝 Parse JSON<br/>Clean Output]
+    G --> H[🔄 Loop Over Items<br/>Split in Batches]
+    H --> I[🎨 Format Layout<br/>Prepare Elements]
+    I --> J[🔨 HTTP Request<br/>Build Slide]
+    J --> K[⏱️ Wait<br/>Brief Pause]
+    K --> H
+    H --> L[✓ Done<br/>Complete!]
     
-    %% 2. LLM for Naming
-    B(💬 Message a model: Create Filename) --> C;
-    
-    %% 3. Google Slides Setup
-    C[🛠️ Create a presentation] --> D;
-    
-    %% 4. Share Access
-    D[🔗 Share file: Public Access] --> E;
-    
-    %% 5. Initial Data Setup (Slide Count)
-    E[🔢 Edit Fields: Set total_slides = 5] --> F;
-    
-    %% 6. LLM for Content Generation
-    F --> G(🧠 AI Agent: Generate Slide Titles & Bullets JSON);
-    
-    %% 7. Data Transformation
-    G --> H[📜 parse json: Convert Text to Items];
-    
-    %% 8. Looping Mechanism
-    H --> I(🔁 Loop Over Items: 5 Times);
-    I --> J;
-    
-    %% 9. Per-Slide Data Formatting (Inside Loop)
-    J[🎨 slides layout: Format Slide Data & IDs] --> K;
-    
-    %% 10. API Call to Build Slide
-    K[🌐 HTTP Request: Google Slides BatchUpdate] --> L;
-    
-    %% 11. Wait for API to Finish (Good Practice)
-    L[⏱️ Wait: Delay for API stability] --> I; %% Loop back to the start of the next batch/item
-
-    %% Style Definitions
-    style A fill:#aaffaa,stroke:#333,stroke-width:2px;
-    style B fill:#90e0ef,stroke:#333,stroke-width:2px;
-    style C fill:#cbe3f2,stroke:#333,stroke-width:2px;
-    style D fill:#cbe3f2,stroke:#333,stroke-width:2px;
-    style E fill:#f0c0f0,stroke:#333,stroke-width:2px;
-    style G fill:#90e0ef,stroke:#333,stroke-width:2px;
-    style H fill:#f0c0f0,stroke:#333,stroke-width:2px;
-    style I fill:#ffe699,stroke:#333,stroke-width:2px;
-    style J fill:#f0c0f0,stroke:#333,stroke-width:2px;
-    style K fill:#cbe3f2,stroke:#333,stroke-width:2px;
-    style L fill:#ffe699,stroke:#333,stroke-width:2px;
+    style A fill:#667eea
+    style B fill:#f093fb
+    style C fill:#4285f4
+    style D fill:#4285f4
+    style E fill:#fa709a
+    style F fill:#f093fb
+    style G fill:#48bb78
+    style H fill:#ed8936
+    style I fill:#9f7aea
+    style J fill:#3182ce
+    style K fill:#718096
+    style L fill:#38a169
+```
 
 # 🔄 Workflow Breakdown
 
