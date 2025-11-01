@@ -54,6 +54,8 @@ __1. Chat Trigger Node__
 -	__Purpose__: Receives user input via chat interface
 -	__Configuration__: Allows file uploads (though not utilized in current flow)
   
+  ![Chat Trigger Diagram](images/chat_input.png)
+  
 __2. File Name Generation__
 -	__Type__: @n8n/n8n-nodes-langchain.openAi
 -	__Model__: GPT-4o-mini
@@ -65,6 +67,8 @@ __3. Create Presentation__
 -	__Type__: n8n-nodes-base.googleSlides
 -	__Purpose__: Creates empty Google Slides presentation
 -	__Output__: Returns presentationId for subsequent operations
+
+ ![Presenatation node Diagram](images/create_presentation.png)
   
 __4. Share File__
 -	__Type__: n8n-nodes-base.googleDrive
@@ -72,6 +76,8 @@ __4. Share File__
 -	__Configuration__: 
 1.	__Role__: Writer
 2.	__Type__: Anyone (public access)
+
+   ![sharefile node Diagram](images/share_file.png)
    
 __5. Edit Fields (Configuration)__
 -	__Type__: n8n-nodes-base.set
@@ -92,6 +98,8 @@ json
   }
 ]
 -	__Requirements__: 5 detailed bullet points per slide
+
+  ![Ai agent node Diagram](images/ai_agent.png)
   
 __7. Parse JSON__
 -	__Type__: n8n-nodes-base.code
@@ -126,6 +134,8 @@ __10. HTTP Request (Batch Update)__
 4.	Add subtitle text box
 5.	Add bullet points text box
 6.	Apply formatting and styling
+
+   ![http request node Diagram](images/http_request.png)
    
 __11. Wait Node__
 -	__Type__: n8n-nodes-base.wait
