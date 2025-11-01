@@ -218,7 +218,7 @@ __Installation Steps__
 
 __1.	Import Workflow__
 bash
-   # Import the slides_ppt_n8n.json file into your n8n instance
+- Import the slides_ppt_n8n.json file into your n8n instance
    
 __2.	Configure OpenAI Credentials__
 -	Navigate to Credentials
@@ -232,93 +232,108 @@ __3.	Configure Google OAuth2__
 	Google Drive OAuth2 API
 -	Authorize scopes
 
-4.	Activate Workflow 
-o	Set workflow to "Active"
-o	Note the webhook URL from Chat Trigger
-5.	Test Workflow 
-o	Send a test message: "Create a presentation about machine learning basics"
-o	Verify presentation is created in Google Drive
-💡 Usage Examples
-Example 1: Technical Tutorial
+__4.	Activate Workflow__
+-	Set workflow to "Active"
+-	Note the webhook URL from Chat Trigger
+  
+__5.	Test Workflow__
+-	Send a test message: "Create a presentation about machine learning basics"
+-	Verify presentation is created in Google Drive
+  
+__💡 Usage Examples__
+__Example 1__: Technical Tutorial
 Input: "Create a presentation on Docker containerization"
 Output: 5-slide presentation with:
-•	Introduction to Docker
-•	Container Architecture
-•	Docker Commands
-•	Use Cases
-•	Best Practices
-Example 2: Business Presentation
+-	Introduction to Docker
+-	Container Architecture
+-	Docker Commands
+-	Use Cases
+-	Best Practices
+  
+__Example 2__: Business Presentation
 Input: "Make slides about Q4 2024 sales strategy"
 Output: 5-slide presentation with:
-•	Executive Summary
-•	Market Analysis
-•	Strategic Initiatives
-•	Timeline & Milestones
-•	Success Metrics
-Example 3: Educational Content
+-	Executive Summary
+-	Market Analysis
+-	Strategic Initiatives
+-	Timeline & Milestones
+-	Success Metrics
+  
+__Example 3__: Educational Content
 Input: "Presentation about photosynthesis for high school"
 Output: 5-slide presentation with:
-•	What is Photosynthesis?
-•	Light Reactions
-•	Calvin Cycle
-•	Importance
-•	Real-world Applications
-⚙️ Configuration Options
-Adjustable Parameters
-Number of Slides
+-	What is Photosynthesis?
+-	Light Reactions
+-	Calvin Cycle
+-	Importance
+-	Real-world Applications
+  
+__⚙️ Configuration Options__
+- Adjustable Parameters
+- Number of Slides
 javascript
 // In "Edit Fields" node
 {
   "total_slides": 5  // Change to desired number
 }
-Logo Text
+- Logo Text
 javascript
 // In "slides layout" node
 {
   "logo_str": "@nikhil"  // Replace with your brand
 }
-Slide Content Requirements
-javascript
+- Slide Content Requirements
+- javascript
 // In "AI Agent" node prompt
 "at least 5 detailed bullet points"  // Adjust quantity
-🔍 Troubleshooting
-Common Issues
-1. JSON Parsing Errors
-•	Cause: AI output includes prose or malformed JSON
-•	Solution: The parse JSON node handles this automatically by extracting content between [ and ]
-2. API Rate Limiting
-•	Cause: Too many rapid API calls
-•	Solution: Wait node is included; adjust timing if needed
-3. Authentication Failures
-•	Cause: Expired OAuth tokens
-•	Solution: Reconnect Google credentials in n8n
-4. Incomplete Slides
-•	Cause: AI generated fewer slides than expected
-•	Solution: Check AI Agent prompt and adjust requirements
-📈 Performance Considerations
-•	Average Execution Time: 30-60 seconds for 5 slides
-•	API Calls: ~12 calls per slide (includes formatting)
-•	Cost Estimation: 
-o	OpenAI GPT-4o-mini: ~$0.01 per presentation
-o	Google APIs: Free (within quotas)
-🛡️ Security Notes
-•	Presentations are created with public writer access
-•	Consider adding authentication for production use
-•	Store API keys securely using n8n credentials manager
-•	Review Google Cloud Project permissions regularly
-🔮 Future Enhancements
-•	Support for image insertion
-•	Custom theme selection
-•	Chart and graph generation
-•	Multiple layout templates
-•	PDF export option
-•	Email delivery of completed presentations
-•	Support for different slide counts per request
-•	Custom color schemes
-•	Integration with company branding guidelines
-📝 License
+
+# 🔍 Troubleshooting
+__Common Issues__
+
+__1. JSON Parsing Errors__
+-	Cause: AI output includes prose or malformed JSON
+-	Solution: The parse JSON node handles this automatically by extracting content between [ and ]
+
+__3. API Rate Limiting__
+-	Cause: Too many rapid API calls
+-	Solution: Wait node is included; adjust timing if needed
+
+__5. Authentication Failures__
+-	Cause: Expired OAuth tokens
+-	Solution: Reconnect Google credentials in n8n
+
+__7. Incomplete Slides__
+-	Cause: AI generated fewer slides than expected
+-	Solution: Check AI Agent prompt and adjust requirements
+
+__📈 Performance Considerations__
+-	Average Execution Time: 30-60 seconds for 5 slides
+-	API Calls: ~12 calls per slide (includes formatting)
+-	Cost Estimation: 
+1.	OpenAI GPT-4o-mini: ~$0.01 per presentation
+2.  Google APIs: Free (within quotas)
+
+__🛡️ Security Notes__
+-	Presentations are created with public writer access
+-	Consider adding authentication for production use
+-	Store API keys securely using n8n credentials manager
+-	Review Google Cloud Project permissions regularly
+
+__🔮 Future Enhancements__
+-	Support for image insertion
+-	Custom theme selection
+-	Chart and graph generation
+-	Multiple layout templates
+-	PDF export option
+-	Email delivery of completed presentations
+-	Support for different slide counts per request
+-	Custom color schemes
+-	Integration with company branding guidelines
+
+__📝 License__
 This workflow is provided as-is for educational and commercial use.
-🤝 Contributing
+
+__🤝 Contributing__
 Contributions are welcome! Please:
 1.	Fork the repository
 2.	Create a feature branch
