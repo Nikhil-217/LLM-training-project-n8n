@@ -140,6 +140,11 @@ __10. HTTP Request (Batch Update)__
 __11. Wait Node__
 -	__Type__: n8n-nodes-base.wait
 -	__Purpose__: Prevents API rate limiting between slide creations
+
+
+  ## Sample output generated 📊 Presentation here
+[🖥️ Click here to view the sample presentation](https://github.com/Nikhil-217/LLM-training-project-n8n/blob/main/Presentation_10_31_2023_Python_Data_Types.pptx)
+
   
 
 # 🔧 Technical Details
@@ -314,5 +319,11 @@ Contributions are welcome! Please:
 2.	Create a feature branch
 3.	Submit a pull request with detailed description
 
+## Watch demo video here
+
+[▶️ Watch the demo video](https://github.com/Nikhil-217/LLM-training-project-n8n/blob/main/demo_video_workflow.mp4)
+
+## 📊 Project Presentation
+[🖥️ Click here to view the PowerPoint presentation](https://github.com/Nikhil-217/LLM-training-project-n8n/blob/main/Slides%20generator%20using%20AI.pptx)
 
   
